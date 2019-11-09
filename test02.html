@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="vue.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <div id="x1">
+        <span >{{fullname01}}</span><br/>
+        <span v-text="fullname02"></span><br/>
+        <span >{{count01}}</span><br/>
+        <span >{{count02}}</span><br/>
+        <span >{{count03}}</span><br/>
+        <input type="text" v-model="t1"><br/>
+        <input type="text" v-model="t2">
+    </div>
+
+    <script>
+        var v=new Vue({
+            el:'#x1',
+            data:{
+                t1:"",
+                t2:"",
+                count01:0,
+                count02:0,
+                count03:0
+            },
+            computed:{   //Vue的计算属性
+                fullname01:function () {
+                    return this.t1 + " " +this.t2;
+                },
+                fullname02:function () {
+                    return this.t1+"&" +this.t2;
+                }
+            },
+            watch:{  //Vue的监听属性
+                t1:function () {
+                    this.count01++;
+                },
+                t2:function () {
+                    this.count02++;
+                },
+                fullname01:function () {
+                    this.count03++;
+                }
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

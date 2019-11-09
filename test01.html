@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="x">{{hehe}}</div><br/>
+    <div id="x2"></div><br/>
+    <div id="x3">
+        <div v-text="msg"></div><br/>
+        <div><input type="text" v-model="msg"></div>
+
+        <span v-text="hehe"></span>
+        <span v-html="haha"></span>
+        <span >{{xixi}}</span><br/>
+        <button v-on:click="x1">{{count1}}</button>
+        <button v-on:click="x2">{{count2}}</button>
+        <!--@可以代替v-on，是v-on的简写指令-->
+        <button @click="x3">{{count3}}</button>
+        <br/><br/>
+        <div id="image" >
+            <img v-bind:src="imgpath">
+        </div>
+    </div>
+    <script>
+
+
+            // el为载入点
+            // data为数据
+            // methods为方法
+            // template为模板
+
+        var flag01=true;
+        var image = new Vue({
+            el:"#image",
+            data:{
+                imgpath:"image/meinv.jpg"
+            }
+
+        });
+
+
+
+        var v=new Vue({
+            "el":"#x",
+            "data":{
+                "haha":"从前有座山",
+                "hehe":"锄禾日当午"
+            }
+        });
+        var flag =false;
+        if(flag){
+            v.hehe="i am false";
+
+        }else{
+            v.hehe="i anm true"
+        }
+
+        var v2= new Vue({
+            "el":"#x2",
+            "data":{
+
+            },
+            template:"<h1>大标题</h1>"
+        });
+
+        var v3=new Vue({
+            el:"#x3",
+            data:{
+                haha:"<a href='http://www.baidu.com'>从前有座山,有和尚</a>",
+                hehe:"<a href='http://www.baidu.com'>锄禾日当午，汗滴河下苦</a>",
+                xixi:"<a href='http://www.baidu.com'>nihao</a>",
+                count1:1,
+                count2:1,
+                count3:1,
+                msg:"aa"
+            },
+            methods:{
+                x1:function () {
+                    this.count1++;
+                },
+                x2:function () {
+                    this.count2++;
+                },
+                x3:function () {
+                    this.count3++;
+                }
+
+            }
+        });
+
+    </script>
+
+</body>
+</html>

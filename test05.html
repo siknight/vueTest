@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<!--v-for指令练习-->
+    <div id="x">
+       <div v-for="item of list">{{item}}</div>
+        --------------
+        <div v-for="item of list" v-text="item"></div>
+        -----------------
+        <div v-for="(item,index) of list" v-text="index"></div>
+        -----------------
+        <div v-for="(item,index) of list" >{{index+1}}</div>
+    </div>
+    <script>
+        var arr = ["从前有个马老师","短小经干","拥有40米大长刀","经常没事就推门进来","还经常让人跑39米","喜欢掏出来"];
+        var v =new Vue({
+            el:"#x",
+            data:{
+                list:arr
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

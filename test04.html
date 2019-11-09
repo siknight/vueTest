@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<!--v-show指令练习-->
+    <div id="x">
+        <img v-show="flag" src="image/meinv.jpg"><br/>
+        <button @click="show">显示</button>
+        <button @click="hidden">隐藏</button>
+    </div>
+    <script>
+
+        var v =new Vue({
+            el:"#x",
+            data:{
+                flag:true
+            },
+            methods:{
+                show:function () {
+                    this.flag=true;
+                    console.info("flag="+flag);
+                },
+                hidden:function () {
+                    this.flag=false;
+                    console.info("flag="+flag);
+                }
+            }
+
+
+
+
+
+        });
+
+
+    </script>
+
+</body>
+</html>
